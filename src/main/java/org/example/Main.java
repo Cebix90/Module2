@@ -14,7 +14,10 @@ public class Main {
 //        TriangleMadeWithStars triangleMadeWithStars = new TriangleMadeWithStars();
 //        triangleMadeWithStars.run();
 
-        PrintAllNumbers printAllNumbers = new PrintAllNumbers();
-        printAllNumbers.run();
+//        PrintAllNumbers printAllNumbers = new PrintAllNumbers();
+//        printAllNumbers.run();
+
+        SumOfNumbers sumOfNumbers = new SumOfNumbers();
+        sumOfNumbers.run();
     }
 }
