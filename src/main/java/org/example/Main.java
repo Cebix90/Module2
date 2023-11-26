@@ -11,7 +11,10 @@ public class Main {
 //        LowestNumber lowestNumber = new LowestNumber();
 //        lowestNumber.run();
 
-        TriangleMadeWithStars triangleMadeWithStars = new TriangleMadeWithStars();
-        triangleMadeWithStars.run();
+//        TriangleMadeWithStars triangleMadeWithStars = new TriangleMadeWithStars();
+//        triangleMadeWithStars.run();
+
+        PrintAllNumbers printAllNumbers = new PrintAllNumbers();
+        printAllNumbers.run();
     }
 }
