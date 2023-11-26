@@ -8,7 +8,10 @@ public class Main {
 //        Average average = new Average();
 //        average.run();
 
-        LowestNumber lowestNumber = new LowestNumber();
-        lowestNumber.run();
+//        LowestNumber lowestNumber = new LowestNumber();
+//        lowestNumber.run();
+
+        TriangleMadeWithStars triangleMadeWithStars = new TriangleMadeWithStars();
+        triangleMadeWithStars.run();
     }
 }
