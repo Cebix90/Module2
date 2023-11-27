@@ -1,17 +1,16 @@
 package org.example;
 
-import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class FibonacciSequence {
-    private final Scanner scanner = new Scanner(System.in);
+    private final NumberInputReader inputReader = new NumberInputReader();
 
     public void run(){
         printFibonacciSequence();
     }
 
     private void printFibonacciSequence(){
-        int arrSize = getANumber();
+        int arrSize = inputReader.getANumber();
 
         if (arrSize <= 0) {
             System.out.println("Invalid array size. Please provide a positive number greater than zero.");
@@ -31,25 +30,7 @@ public class FibonacciSequence {
 
             System.out.println(str);
         }
-    }
 
-    private int getANumber() {
-        System.out.println("Enter a number: ");
-
-        int input;
-
-        try {
-            input = Integer.parseInt(scanner.nextLine());
-            System.out.println();
-
-            if (input <= 0) {
-                return Integer.MIN_VALUE;
-            }
-
-        } catch (NumberFormatException e) {
-            return Integer.MIN_VALUE;
-        }
-
-        return input;
+        inputReader.closeScanner();
     }
 }
