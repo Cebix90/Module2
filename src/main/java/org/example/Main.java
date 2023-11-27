@@ -17,7 +17,10 @@ public class Main {
 //        PrintAllNumbers printAllNumbers = new PrintAllNumbers();
 //        printAllNumbers.run();
 
-        SumOfNumbers sumOfNumbers = new SumOfNumbers();
-        sumOfNumbers.run();
+//        SumOfNumbers sumOfNumbers = new SumOfNumbers();
+//        sumOfNumbers.run();
+
+        FibonacciSequence fibonacciSequence = new FibonacciSequence();
+        fibonacciSequence.run();
     }
 }
