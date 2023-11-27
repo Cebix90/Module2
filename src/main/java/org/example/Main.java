@@ -2,6 +2,7 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
+        NumberInputReader inputReader = new NumberInputReader();
 //        NumberCheck numberCheck = new NumberCheck();
 //        numberCheck.checkNumber();
 
@@ -20,7 +21,10 @@ public class Main {
 //        SumOfNumbers sumOfNumbers = new SumOfNumbers();
 //        sumOfNumbers.run();
 
-        FibonacciSequence fibonacciSequence = new FibonacciSequence();
-        fibonacciSequence.run();
+//        FibonacciSequence fibonacciSequence = new FibonacciSequence();
+//        fibonacciSequence.run();
+
+        FactorialCalculator factorialCalculator = new FactorialCalculator(inputReader);
+        factorialCalculator.run();
     }
 }
