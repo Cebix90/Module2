@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.calculator.CalculatorMain;
+
 public class Main {
     public static void main(String[] args) {
         NumberInputReader inputReader = new NumberInputReader();
@@ -24,7 +26,10 @@ public class Main {
 //        FibonacciSequence fibonacciSequence = new FibonacciSequence();
 //        fibonacciSequence.run();
 
-        FactorialCalculator factorialCalculator = new FactorialCalculator(inputReader);
-        factorialCalculator.run();
+//        FactorialCalculator factorialCalculator = new FactorialCalculator(inputReader);
+//        factorialCalculator.run();
+
+        CalculatorMain calculatorMain = new CalculatorMain();
+        calculatorMain.start();
     }
 }
