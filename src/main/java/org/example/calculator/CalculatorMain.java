@@ -3,43 +3,70 @@ package org.example.calculator;
 import java.util.Scanner;
 
 public class CalculatorMain {
+    Scanner scanner = new Scanner(System.in);
     public void start() {
-        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Choose 1 for perform calculator operation or 2 for exit the program");
+            int choice = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Enter the first number: ");
-        while (!scanner.hasNextDouble()) {
-            System.out.println("Invalid input. Please enter a valid number.");
-            scanner.next();
+            switch (choice) {
+                case 1:
+                    performCalculatorOperation(scanner);
+                    continue;
+                case 2:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid input. Please enter 1 or 2.");
+            }
         }
-        double operand1 = scanner.nextDouble();
+    }
 
-        System.out.print("Enter the second number: ");
-        while (!scanner.hasNextDouble()) {
-            System.out.println("Invalid input. Please enter a valid number.");
-            scanner.next();
-        }
-        double operand2 = scanner.nextDouble();
+    private static void performCalculatorOperation(Scanner scanner) {
+        do {
+            double operand1 = getValidDoubleInput(scanner, "Enter the first number: ");
+            double operand2 = getValidDoubleInput(scanner, "Enter the second number: ");
 
-        System.out.print("Enter the operator (+, -, *, /): ");
-        char operatorSymbol = scanner.next().charAt(0);
+            System.out.print("Enter the operator (+, -, *, /): ");
 
-        MathematicalOperators operator = getOperator(operatorSymbol);
-        if (operator == null) {
-            System.out.println("Invalid operator. Exiting...");
-            return;
-        }
+            char operatorSymbol;
+            MathematicalOperators operator;
+            while (true) {
+                String operatorInput = scanner.nextLine().trim();
+                if (operatorInput.length() == 1) {
+                    operatorSymbol = operatorInput.charAt(0);
+                    operator = getOperator(operatorSymbol);
 
-        MathOperationExecutor operationExecutor = getOperationExecutor(operator);
-        if (operationExecutor == null) {
-            System.out.println("Unsupported operation. Exiting...");
-            return;
-        }
+                    if(operator != null){
+                        break;
+                    } else {
+                        System.out.println("Invalid operator. Please try again.");
+                    }
+                } else {
+                    System.out.println("Invalid input. Please enter a single operator (+, -, *, /):");
+                }
+            }
 
-        CalculatorService calculatorService = new CalculatorService(operationExecutor);
+            MathOperationExecutor operationExecutor = getOperationExecutor(operator);
+            if (operationExecutor == null) {
+                System.out.println("Unsupported operation. Please try again.");
+                continue;
+            }
 
-        double result = calculatorService.performOperation(operand1, operand2, operator);
+            CalculatorService calculatorService = new CalculatorService(operationExecutor);
 
-        System.out.println("Result: " + result);
+            double result = calculatorService.performOperation(operand1, operand2, operator);
+
+            System.out.println("Result: " + result);
+
+            System.out.println("Do you want to perform another calculation? (y/n): ");
+            String answer = scanner.nextLine().trim().toLowerCase();
+
+            if (!answer.equals("y")) {
+                break;
+            }
+
+        } while (true);
     }
 
     private static MathematicalOperators getOperator(char operatorSymbol) {
@@ -59,5 +86,22 @@ public class CalculatorMain {
             case DIVISION -> new DivisionExecutor();
             default -> null;
         };
+    }
+
+    private static double getValidDoubleInput(Scanner scanner, String prompt) {
+        double result;
+
+        while (true) {
+            System.out.print(prompt);
+
+            try {
+                result = Double.parseDouble(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+            }
+        }
+
+        return result;
     }
 }
