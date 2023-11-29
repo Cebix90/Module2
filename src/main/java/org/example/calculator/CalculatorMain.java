@@ -6,7 +6,7 @@ public class CalculatorMain {
     Scanner scanner = new Scanner(System.in);
     public void start() {
         while (true) {
-            System.out.println("Choose 1 for perform calculator operation or 2 for exit the program");
+            System.out.println("Choose 1 for performing a calculator operation or 2 to exit the program");
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
@@ -22,7 +22,7 @@ public class CalculatorMain {
         }
     }
 
-    private static void performCalculatorOperation(Scanner scanner) {
+    private void performCalculatorOperation(Scanner scanner) {
         do {
             double operand1 = getValidDoubleInput(scanner, "Enter the first number: ");
             double operand2 = getValidDoubleInput(scanner, "Enter the second number: ");
