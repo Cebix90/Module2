@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 public class Average {
-    public void calculateAverageOfThreePositiveNumbers() {
+    public void averageOfThreePositiveNumbers() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter 3 positive numbers and get their average.\nPlease enter first number:");
         int first = getNumber(scanner);
