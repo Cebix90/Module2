@@ -4,18 +4,17 @@ import org.example.calculator.CalculatorMain;
 
 public class Main {
     public static void main(String[] args) {
-        NumberInputReader inputReader = new NumberInputReader();
 //        NumberCheck numberCheck = new NumberCheck();
 //        numberCheck.checkNumber();
 
-//        Average average = new Average();
-//        average.run();
+        Average average = new Average();
+        average.calculateAverageOfThreePositiveNumbers();
 
 //        LowestNumber lowestNumber = new LowestNumber();
 //        lowestNumber.run();
 
 //        TriangleMadeWithStars triangleMadeWithStars = new TriangleMadeWithStars();
-//        triangleMadeWithStars.run();
+//        triangleMadeWithStars.start();
 
 //        PrintAllNumbers printAllNumbers = new PrintAllNumbers();
 //        printAllNumbers.run();
@@ -29,7 +28,7 @@ public class Main {
 //        FactorialCalculator factorialCalculator = new FactorialCalculator(inputReader);
 //        factorialCalculator.run();
 
-        CalculatorMain calculatorMain = new CalculatorMain();
-        calculatorMain.start();
+//        CalculatorMain calculatorMain = new CalculatorMain();
+//        calculatorMain.start();
     }
 }

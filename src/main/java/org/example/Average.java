@@ -1,44 +1,41 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Average {
-    private final Scanner scanner = new Scanner(System.in);
-    private final List<Double> numbers = new ArrayList<>();
+    public void calculateAverageOfThreePositiveNumbers() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter 3 positive numbers and get their average.\nPlease enter first number:");
+        int first = getNumber(scanner);
 
-    public void run() {
-        getANumbers();
-        if (!numbers.isEmpty())
-            System.out.println("Average: " + calculateAverage());
-        else
-            System.out.println("List of numbers is cleared. You have to enter only positive numbers");
+        System.out.println("Enter second number:");
+        int second = getNumber(scanner);
+
+        System.out.println("Enter third number:");
+        int third = getNumber(scanner);
+
+        if(first > 0 && second > 0 && third > 0){
+            double result = (double) (first + second + third) / 3;
+            System.out.println("Average: " + result);
+        }
+        else {
+            System.out.println("All numbers must be positive!");
+        }
     }
 
-    private void getANumbers() {
-        System.out.println("Enter 3 positive numbers and get their average:");
+    private static int getNumber(Scanner scanner){
+        int number = 0;
+        boolean validInput = false;
 
-        for (int i = 0; i < 3; i++) {
-            double input = Double.parseDouble(scanner.nextLine());
-            if (input > 0)
-                numbers.add(input);
-            else {
-                numbers.clear();
-                break;
+        while (!validInput) {
+            try {
+                number = Integer.parseInt(scanner.nextLine());
+                validInput = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
             }
         }
-    }
 
-    private double calculateAverage() {
-        if (numbers.isEmpty())
-            return 0.0;
-
-        double sum = 0.0;
-        for (Double number : numbers) {
-            sum += number;
-        }
-
-        return sum / numbers.size();
+        return number;
     }
 }
