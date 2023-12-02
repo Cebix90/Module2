@@ -1,34 +1,30 @@
 package org.example;
 
-import org.example.calculator.CalculatorMain;
 
 public class Main {
     public static void main(String[] args) {
 //        NumberCheck numberCheck = new NumberCheck();
 //        numberCheck.checkNumber();
 
-        Average average = new Average();
-        average.calculateAverageOfThreePositiveNumbers();
+//        Average average = new Average();
+//        average.averageOfThreePositiveNumbers();
 
 //        LowestNumber lowestNumber = new LowestNumber();
-//        lowestNumber.run();
+//        lowestNumber.lowestOfFiveNumbers();
 
 //        TriangleMadeWithStars triangleMadeWithStars = new TriangleMadeWithStars();
-//        triangleMadeWithStars.start();
+//        triangleMadeWithStars.printTriangle();
 
 //        PrintAllNumbers printAllNumbers = new PrintAllNumbers();
-//        printAllNumbers.run();
+//        printAllNumbers.printNumbers();
 
-//        SumOfNumbers sumOfNumbers = new SumOfNumbers();
-//        sumOfNumbers.run();
+//        SumOfNumbers.sumUpToInput();
 
-//        FibonacciSequence fibonacciSequence = new FibonacciSequence();
-//        fibonacciSequence.run();
+//        FibonacciSequence.printFibonacciSequence();
 
-//        FactorialCalculator factorialCalculator = new FactorialCalculator(inputReader);
-//        factorialCalculator.run();
+//        FactorialCalculator.calculateFactorial();
 
-//        CalculatorMain calculatorMain = new CalculatorMain();
-//        calculatorMain.start();
+        Calculator calculatorMain = new Calculator();
+        calculatorMain.start();
     }
 }
