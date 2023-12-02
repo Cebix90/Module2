@@ -1,21 +1,24 @@
 package org.example;
 
+import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class FibonacciSequence {
-    private final NumberInputReader inputReader = new NumberInputReader();
+    public static void printFibonacciSequence(){
+        Scanner scanner = new Scanner(System.in);
 
-    public void run(){
-        printFibonacciSequence();
-    }
+        System.out.println("Enter the number of Fibonacci numbers to print:");
+        int arrSize = scanner.nextInt();
+        System.out.println();
 
-    private void printFibonacciSequence(){
-        int arrSize = inputReader.getANumber();
+        long[] arr;
 
-        if (arrSize <= 0) {
+        if (arrSize < 1) {
             System.out.println("Invalid array size. Please provide a positive number greater than zero.");
+        } else if (arrSize == 1) {
+            System.out.println("Fibonacci sequence of " + arrSize + " numbers: 0");
         } else {
-            long[] arr = new long[(int) arrSize];
+            arr = new long[arrSize];
             arr[0] = 0;
             arr[1] = 1;
 
@@ -23,14 +26,12 @@ public class FibonacciSequence {
             str.add(Long.toString(arr[0]));
             str.add(Long.toString(arr[1]));
 
-            for(int i = 2; i < arrSize; i++){
-                arr[i] = arr[i-1] + arr[i -2];
+            for (int i = 2; i < arrSize; i++) {
+                arr[i] = arr[i - 1] + arr[i - 2];
                 str.add(Long.toString(arr[i]));
             }
 
-            System.out.println(str);
+            System.out.println("Fibonacci sequence of " + arrSize + " numbers: " + str);
         }
-
-        inputReader.closeScanner();
     }
 }
