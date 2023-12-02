@@ -3,13 +3,11 @@ package org.example;
 import java.util.Scanner;
 
 public class PrintAllNumbers {
-    private final Scanner scanner = new Scanner(System.in);
+    public void printNumbers() {
+        Scanner scanner = new Scanner(System.in);
 
-    public void run(){
-        printNumbers();
-    }
-    private void printNumbers() {
-        int number = getANumber();
+        System.out.println("Enter a natural number, to print all of them:");
+        int number = scanner.nextInt();
         System.out.println();
 
         if(number < 0) {
@@ -19,10 +17,5 @@ public class PrintAllNumbers {
                 System.out.println(i);
             }
         }
-    }
-    private int getANumber() {
-        System.out.println("Enter a natural number :");
-
-        return Integer.parseInt(scanner.nextLine());
     }
 }
