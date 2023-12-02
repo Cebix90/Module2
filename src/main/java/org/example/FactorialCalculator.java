@@ -3,27 +3,20 @@ package org.example;
 import java.util.Scanner;
 
 public class FactorialCalculator {
-    private final NumberInputReader inputReader;
+    public static void calculateFactorial() {
+        Scanner scanner = new Scanner(System.in);
 
-    public FactorialCalculator(NumberInputReader inputReader) {
-        this.inputReader = inputReader;
-    }
+        System.out.println("Enter the positive number to calculate factorial:");
+        int number = scanner.nextInt();
 
-    public void run(){
-        int factorial = inputReader.getANumber();
-        inputReader.closeScanner();
-        if(factorial < 1) {
-            System.out.println("Input must be bigger than 0");
+        if(number > 0){
+            long result = 1;
+            for (int i = 1; i <= number; i++){
+                result *= i;
+            }
+            System.out.println("Factorial of number " + number + " = " + result);
         } else {
-            calculateFactorial(factorial);
+            System.out.println("Number must be positive :)");
         }
-    }
-
-    private void calculateFactorial(int number) {
-        long result = 1;
-        for (int i = 1; i <= number; i++){
-            result *= i;
-        }
-        System.out.println("Factorial of " + number + " = " + result);
     }
 }
