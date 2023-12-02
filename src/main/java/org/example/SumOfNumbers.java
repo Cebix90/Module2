@@ -3,15 +3,13 @@ package org.example;
 import java.util.Scanner;
 
 public class SumOfNumbers {
-    private final Scanner scanner = new Scanner(System.in);
-    int number = getANumber();
-    public void run(){
-        System.out.println("Sum of all numbers from 0-" + number + " is equal to " + sumNumbers());
-    }
-    private int sumNumbers() {
+    public static void sumUpToInput() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter a natural number to sum up to (inclusive):");
+        int number = scanner.nextInt();
 
         int sum = 0;
-        System.out.println();
 
         if(number < 0) {
             System.out.println(number + " isn't a natural number");
@@ -21,11 +19,6 @@ public class SumOfNumbers {
             }
         }
 
-        return sum;
-    }
-    private int getANumber() {
-        System.out.println("Enter a natural number :");
-
-        return Integer.parseInt(scanner.nextLine());
+        System.out.println("The sum of numbers up to the specified value is: " + sum);
     }
 }
